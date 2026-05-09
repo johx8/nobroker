@@ -1,0 +1,29 @@
+ public void editOption() {
+
+        WebElement editBtn = getWait().until(driver ->
+                driver.findElement(edit));
+
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].click()", editBtn);
+
+        waitUntilElementClickable(driver.findElement(fromlift));
+        driver.findElement(fromlift).click();
+
+        waitUntilElementClickable(driver.findElement(floorNo));
+        driver.findElement(floorNo).sendKeys("2");
+
+        WebElement saveBtn = driver.findElement(save);
+
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].click()", saveBtn);
+    }
+
+
+public void bookingItems() {
+
+        WebElement bookingBtn = getWait().until(driver ->
+                driver.findElement(confirmBooking));
+
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].click()", bookingBtn);
+    }
