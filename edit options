@@ -1,4 +1,34 @@
- public void editOption() {
+package com.pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class BookingPage extends BasePage {
+
+    public BookingPage(WebDriver driver) {
+        super(driver);
+    }
+
+    By edit = By.xpath("//div[contains(text(),'Edit')]");
+    By fromlift = By.id("fromLift");
+    By floorNo = By.xpath("//input[@placeholder='Enter Floor No.']");
+    By save = By.xpath("//div[contains(text(),'Save & Continue')]/parent::div[@id='pnmGetRealPriceButtonDesktop']");
+
+    By addInventory = By.xpath("//div[contains(text(),'Your Added Inventory')]");
+    By editItem = By.xpath("//div[contains(text(),'Edit Items')]");
+    By bedWithoutStorage = By.xpath("//div[text()='King Size Bed - Without Storage']/../../div[2]/div");
+    By decrement = By.xpath("//div[text()='King Size Bed - With Storage']/../../div[2]//div[@id='decreament']");
+    By cont = By.xpath("//button/div/div[text()='Continue']");
+    By confirm = By.xpath("//div[text()='Confirm']");
+
+    By add = By.xpath("//div[@data-index='2']//div[contains(text(),'Add')]");
+    By toggle = By.xpath("//input[@id='SMART_PACKING' and @type='checkbox']");
+
+    By confirmBooking = By.xpath("(//button[normalize-space()='Confirm Booking'])[last()]");
+
+    public void editOption() {
 
         WebElement editBtn = getWait().until(driver ->
                 driver.findElement(edit));
@@ -18,8 +48,37 @@
                 .executeScript("arguments[0].click()", saveBtn);
     }
 
+    public void modifyInventory() {
 
-public void bookingItems() {
+        waitUntilElementClickable(driver.findElement(addInventory));
+        driver.findElement(addInventory).click();
+
+        waitUntilElementClickable(driver.findElement(editItem));
+        driver.findElement(editItem).click();
+
+        waitUntilElementClickable(driver.findElement(bedWithoutStorage));
+        driver.findElement(bedWithoutStorage).click();
+
+        waitUntilElementClickable(driver.findElement(decrement));
+        driver.findElement(decrement).click();
+
+        waitUntilElementClickable(driver.findElement(cont));
+        driver.findElement(cont).click();
+
+        waitUntilElementClickable(driver.findElement(confirm));
+        driver.findElement(confirm).click();
+    }
+
+    public void addOns() {
+
+        waitUntilElementClickable(driver.findElement(add));
+        driver.findElement(add).click();
+
+        waitUntilElementClickable(driver.findElement(toggle));
+        driver.findElement(toggle).click();
+    }
+
+    public void bookingItems() {
 
         WebElement bookingBtn = getWait().until(driver ->
                 driver.findElement(confirmBooking));
@@ -27,3 +86,4 @@ public void bookingItems() {
         ((JavascriptExecutor) driver)
                 .executeScript("arguments[0].click()", bookingBtn);
     }
+}
