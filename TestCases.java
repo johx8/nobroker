@@ -49,7 +49,9 @@ public class TestCases extends BaseSteps {
   @Test(priority = 4, description = "invalid/null locations")
   public void testcase5() throws InterruptedException {
 	  driver.navigate().back();
+	  Thread.sleep(5000);
 	  driver.navigate().back();
+	  Thread.sleep(5000);
 	  NegativePage negative = new NegativePage(driver);
 	  negative.enterNullLocations();
   }

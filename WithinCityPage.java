@@ -34,6 +34,7 @@ public class WithinCityPage extends BasePage {
 		waitUntilElementClickable(location);
 		location.click();
 		enterAddressAndConfirm(fromInput, fromCity);
+//		waitForOverlayToDisappear();
 		enterAddressAndConfirm(toInput, toCity);
 		waitUntilElementClickable(checkPrice);
 		checkPrice.click();

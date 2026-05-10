@@ -1,4 +1,3 @@
-//BasePage.java
 package com.pages;
 
 import java.time.Duration;
@@ -13,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
-	static WebDriver driver;
+	protected WebDriver driver;
 	WebDriverWait wait;
 	@FindBy(id = "signUp-phoneNumber")
 	WebElement credentials;
@@ -21,10 +20,10 @@ public class BasePage {
 	WebElement login;
 	@FindBy(id = "signUpSubmit")
 	WebElement signin;
-	private static final int DEFAULT_TIMEOUT = 2000;
+	private static final int DEFAULT_TIMEOUT = 20;
 
 	public BasePage(WebDriver driver) {
-		BasePage.driver = driver;
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
@@ -38,7 +37,7 @@ public class BasePage {
 		waitForOverlayToDisappear();
 	}
 
-	private static WebDriverWait getWait() {
+	protected WebDriverWait getWait() {
 		return new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
 	}
 
@@ -66,18 +65,24 @@ public class BasePage {
 		By overlay = By.cssSelector("div.busy-holder.backdrop");
 		getWait().until(ExpectedConditions.invisibilityOfElementLocated(overlay));
 	}
-	public void enterAddressAndConfirm(WebElement element, String fullAddress) throws InterruptedException {
+	public void enterAddressAndConfirm(WebElement element, String fullAddress) throws InterruptedException{
 
 	    waitUntilElementClickable(element);
-
 	    element.click();
-	    element.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+	    element.sendKeys(Keys.CONTROL, "a");
+	    element.sendKeys(Keys.DELETE);
 	    element.sendKeys(fullAddress);
-	    getWait().until(driver -> element.equals(driver.switchTo().activeElement()));
+	    Thread.sleep(5000);
+//	    getWait().until(driver -> !element.equals(driver.switchTo().activeElement()));
+	}
+	public void invalidLocation(WebElement element) throws InterruptedException{
+
+	    waitUntilElementClickable(element);
+	    element.click();
+	    element.sendKeys(Keys.CONTROL, "a");
+	    element.sendKeys(Keys.DELETE);
 	    element.sendKeys(Keys.ENTER);
-	    Thread.sleep(1000);
-	    getWait().until(driver ->
-	        !element.equals(driver.switchTo().activeElement())
-	    );
+	    Thread.sleep(5000);
+//	    getWait().until(driver -> !element.equals(driver.switchTo().activeElement()));
 	}
 }
