@@ -13,8 +13,8 @@ import org.openqa.selenium.support.FindBy;
 public class ChooseSlot extends BasePage {
 	@FindBy(xpath = "//div[normalize-space()='Evening']/parent::div/following-sibling::div[@class='cursor-pointer']")
 	WebElement evening_icon;
-	@FindBy(xpath = "//div[contains(text(),'6PM-7PM')]")
-	WebElement slot;
+//	@FindBy(xpath = "//div[contains(text(),'6PM-7PM')]")
+//	WebElement slot;
 	@FindBy(xpath = "//div[text()='Confirm']")
 	WebElement proceed;
 
@@ -39,12 +39,30 @@ public class ChooseSlot extends BasePage {
 	}
 
 	public void pickTime() {
-		waitUntilElementClickable(evening_icon);
-		evening_icon.click();
-		waitUntilElementClickable(slot);
-		slot.click();
-		waitUntilElementClickable(proceed);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click()", proceed);
+	    waitUntilElementClickable(evening_icon);
+	    evening_icon.click();
+
+	    By slotLocator = By.xpath("//div[contains(text(),'6PM-7PM')]");
+
+	    WebElement slotElement = getWait().until(driver -> {
+
+	        try {
+
+	            WebElement el = driver.findElement(slotLocator);
+
+	            return (el.isDisplayed() && el.isEnabled()) ? el : null;
+
+	        } catch (Exception e) {
+	            return null;
+	        }
+	    });
+
+	    ((JavascriptExecutor) driver)
+	            .executeScript("arguments[0].click()", slotElement);
+
+	    waitUntilElementClickable(proceed);
+
+	    ((JavascriptExecutor) driver)
+	            .executeScript("arguments[0].click()", proceed);
 	}
 }

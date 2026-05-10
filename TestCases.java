@@ -9,6 +9,7 @@ import com.pages.BasePage;
 import com.pages.BookingPage;
 import com.pages.ChooseSlot;
 import com.pages.HomePage;
+import com.pages.NegativePage;
 import com.pages.WithinCityPage;
 import com.parameters.BaseSteps;
 
@@ -38,18 +39,18 @@ public class TestCases extends BaseSteps {
 	  addInvent.addingItems();
   }
   
-  @Test(priority=3, description = "choosing date and time")
+  @Test(priority=3, description = "choosing date and time and landing on booking page")
   public void testcase4() {
 	  ChooseSlot slot = new ChooseSlot(driver);
 	  slot.pickDate();
 	  slot.pickTime();
   }
   
-  @Test(priority = 4, description = "booking page")
-  public void testcase5() {
-	  BookingPage booking = new BookingPage(driver);
-	  booking.editOption();
-	  booking.addOns();
-	  booking.bookingItems();
+  @Test(priority = 4, description = "invalid/null locations")
+  public void testcase5() throws InterruptedException {
+	  driver.navigate().back();
+	  driver.navigate().back();
+	  NegativePage negative = new NegativePage(driver);
+	  negative.enterNullLocations();
   }
 }
