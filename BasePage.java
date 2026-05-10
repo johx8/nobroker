@@ -32,7 +32,7 @@ public class BasePage {
 		waitUntilElementVisible(credentials);
 		credentials.sendKeys(phonenumber);
 		Thread.sleep(20000);
-		waitUntilElementClickable(signin);
+		waitUntilElementVisible(signin);
 		signin.click();
 		waitForOverlayToDisappear();
 	}
@@ -82,7 +82,8 @@ public class BasePage {
 	    element.sendKeys(Keys.CONTROL, "a");
 	    element.sendKeys(Keys.DELETE);
 	    element.sendKeys(Keys.ENTER);
-	    Thread.sleep(5000);
+	    element.sendKeys(Keys.ENTER);
+	    Thread.sleep(3000);
 //	    getWait().until(driver -> !element.equals(driver.switchTo().activeElement()));
 	}
 }

@@ -9,6 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ChooseSlot extends BasePage {
 	@FindBy(xpath = "//div[normalize-space()='Evening']/parent::div/following-sibling::div[@class='cursor-pointer']")
@@ -38,11 +39,11 @@ public class ChooseSlot extends BasePage {
 
 	}
 
-	public void pickTime() {
+	public void pickTime() throws InterruptedException {
 	    waitUntilElementClickable(evening_icon);
 	    evening_icon.click();
-
-	    By slotLocator = By.xpath("//div[contains(text(),'6PM-7PM')]");
+	    
+	    By slotLocator = By.xpath("//div[contains(translate(text(),' ',''),'PM-')]");
 
 	    WebElement slotElement = getWait().until(driver -> {
 
@@ -59,10 +60,16 @@ public class ChooseSlot extends BasePage {
 
 	    ((JavascriptExecutor) driver)
 	            .executeScript("arguments[0].click()", slotElement);
-
-	    waitUntilElementClickable(proceed);
-
+//	    waitUntilElementClickable(proceed);
+//	    ((JavascriptExecutor) driver)
+//	            .executeScript("arguments[0].click()", proceed);
+	    
+	    By confirmLocator = By.xpath("//div[text()='Confirm']");
+	    WebElement confirmButton = getWait().until(ExpectedConditions.visibilityOfElementLocated(confirmLocator));
+	    Thread.sleep(1000);
+	    
 	    ((JavascriptExecutor) driver)
-	            .executeScript("arguments[0].click()", proceed);
+        .executeScript("arguments[0].click()", confirmButton);
+	    
 	}
 }

@@ -1,4 +1,4 @@
-package com.parameters;
+package com.setup;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -18,6 +18,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.parameters.PropertyReader;
 import com.utils.ExtentManager;
 import com.utils.ScreenshotUtil;
 

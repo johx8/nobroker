@@ -14,19 +14,17 @@ public class AddToInventory extends BasePage{
 	public AddToInventory(WebDriver driver) {
 		super(driver);
 	}
-	public void addingItems() throws InterruptedException {
+	public void addingItems(){
 		waitUntilElementClickable(bedroom);
 		bedroom.click();
 		waitUntilElementClickable(beds);
 		beds.click();
 		waitUntilElementClickable(bedWithoutStorage);
 		bedWithoutStorage.click();
-		Thread.sleep(100);
 		waitUntilElementClickable(ac);
 		ac.click();
 		waitUntilElementClickable(splitAc);
 		splitAc.click();
-		Thread.sleep(100);
 		waitUntilElementClickable(proceed);
 		proceed.click();
 	}

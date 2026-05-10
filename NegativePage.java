@@ -15,10 +15,13 @@ public class NegativePage extends BasePage{
 		super(driver);
 	}
 	public void enterNullLocations() throws InterruptedException {
+		waitUntilElementVisible(fromInput);
 		invalidLocation(fromInput);
+		waitUntilElementVisible(toInput);
 		invalidLocation(toInput);
 		waitUntilElementClickable(checkPrice);
 		checkPrice.click();
+		
 	}
 
 }
