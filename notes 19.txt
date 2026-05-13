@@ -1,0 +1,536 @@
+Selenium :
+=========
+--  Selenium is a powerful open-source framework that enables automated testing of web applications across multiple browsers and platforms
+-- to automate repetitive tasks, test web applications, and ensure their functionality across different browsers and platforms.
+--  With Selenium framework, manual testing efforts are minimized,testers are able to deliver test cycles faster by automating repeated test cases.
+--  Selenese is the language used to write selenium commands
+
+Component:
+1. Selenium IDE
+2. Selenium RC
+3. Selenium Grid
+4. Selenium WebDriver
+
+Webdriver  - I   (Chromedriver and others -C  )
+================================================
+-- Selenium WebDriver is a web framework that permits you to execute cross-browser tests. This tool is used for automating web-based application testing to verify that it performs expectedly.
+
+Selenium WebDriver allows you to choose a programming language to create test scripts
+
+
+Benefits of Selenium WebDriver:
+==============================
+* It is one of the most popular Open-Source tools and is easy to get started with for testing web-based applications. It also allows you to perform cross browser compatibility testing.
+* Supports multiple operating systems like Windows, Mac, Linux, Unix, etc.
+* It provides compatibility with a range of languages, including Python, Java, Perl, Ruby, etc.
+* Provides support for modern browsers like Chrome, Firefox, Safari, and Internet Explorer.
+* Selenium WebDriver completes the execution of test scripts faster when compared to other tools
+* More Concise API (Application Programming interface) than Selenium RC’s
+* It also provides compatibility with iPhoneDriver, HtmlUnitDriver, and AndroidDriver
+* Selenium supports parallel test execution.
+* Selenium can be integrated with TestNG and JUnit to generate test reports and manage test cases.
+* Selenium can be integrated with Jenkins, Docker, and Maven to attain continuous testing. 
+
+Drawbacks :
+===========
+* Selenium can test only web applications. It cannot test desktop applications. 
+* Selenium cannot access the web elements outside the web applications that are under test.
+* No guaranteed user support is available. 
+
+--------------------------------------------------------------------------------------------------------------
+
+Selenium:
+=========
+It is a popular open-source software testing framework used for automating web applications & test web applications across multiple browsers. It's primarily built in Java and supports several browsers and programming languages. 
+. It is widely used for functional testing, regression testing, and performance testing. Selenium supports multiple programming languages, including Java, C#, Python, and Ruby
+
+
+The Selenium test suite comprises of four tools:
+
+Selenium Integrated Development Environment (IDE)
+Selenium Remote Control (RC)
+Selenium WebDriver 
+Selenium Grid
+
+Selenium IDE: 
+Selenium Integrated Development Environment (IDE) is a browser extension for Firefox and Chrome that generates tests quickly through its record and playback functionality. The IDE records the user actions on the browser and exports them as a reusable script in different languages such as Java, C# and JavaScript.
+
+Selenium Grid: It is a tool that is used for concurrent execution of test cases on different browsers, machines, and operating systems simultaneously. It allows parallel test execution making it faster to run large test suites.
+
+Selenium RC: It is no longer used. It is being replaced by Selenium WebDriver due to its complex architecture and limitations. It allows you to develop responsive design tests in any scripting language of your choice. Server and client libraries are the two main components of Selenium RC.
+
+Selenium WebDriver is the core component of Selenium which provides a programming interface for driving the web browsers. It allows to write tests in different programming languages to interact with the web elements, simulate user interactions and perform assertions.
+
+1. Open Source
+2. Multiple Languages Support: WebDriver also supports most of the commonly used programming languages like Java, C#, JavaScript, PHP, Ruby, Pearl and Python.
+3. Selenium WebDriver supports multiple OS like Linux, UNIX, Mac as well as Windows.
+4. Multiple Browser Support: Selenium WebDriver supports a diverse range of web browsers such as Firefox, Chrome, Internet Explorer, Opera and many more.
+5. Supports Multiple Frameworks and Languages -- WebDriver can be integrated with various frameworks like Maven or ANT for compiling the source code. For application testing and reporting, it can also be integrated with testing frameworks like TestNG to ease automation testing with Selenium WebDriver. It can even integrate with Jenkins for Continuous Integration or Continuous Delivery automated build and deployment.
+6. Cross-Device Testing -- Support across multiple devices is another major benefits of automation testing with Selenium WebDriver. Automated test cases can now be written for testing on iPhones, Blackberry, and Android
+
+---------------------------------------------------------------------------------------------
+
+webdriver  - I   (chromedriver and others -C  )
+
+selenium jar files (client & web driver bindings)
+
+	1. Create a new project in Eclipse?
+	2. Create a new package under the project?
+	3. And, create a new class under the package?
+	4. How to Add  Selenium WebDriver Jars to the project?
+
+
+Maximize browser window using Selenium Webdriver  ---  manage() method
+			driver.manage().window().maximize();
+
+
+Maven , add maven dependencies (POM.xml) (like selenium java jar file)
+
+
+simple script (setProperty --m,webdriver,driver)      1. Setting the driver path
+steps to Instantiate WebDriver			      2. Creating WebDriver instance( initilizing the driver)
+						      3. Navigate to web page ( launched )
+
+By  -- c
+
+WebDriver driver = new FirefoxDriver(); (Firefox browser )
+WebDriver driver = new ChromeDriver(); (Chrome browser)
+
+ChromeDriver driver = new ChromeDriver(); (Chrome browser)
+
+Maximize browser window using Selenium Webdriver  ---  manage() method
+			driver.manage().window().maximize();
+
+----------------------------------------------------------------------------------------------------
+
+Setting up WebDriver in Selenium
+=================================
+
+
+simple script (setProperty --m,webdriver,driver)      1. Setting the driver path
+steps to Instantiate WebDriver			      2. Creating WebDriver instance( initializing the driver)
+						      3. Navigate to web page ( launched )
+
+1. To set Driver path in Selenium use:
+ 
+ a) System.setProperty(“driver-name”,”driver-path”); - in this global level property is set to check the path for drivers. 
+
+ b) WebDriverManager - WebDriverManager is a class in Selenium used to automate the handling of driver executables like chromedriver.exe, edgedriver.exe, firefoxdriver.exe, etc. 
+Example: 
+WebDriverManager.chromedriver().setup();
+
+
+2. To create instance of the browser: (invoking the browser) 
+WebDriver driver = new ChromeDriver(); //to perform testing in chrome browser 
+WebDriver driver = new EdgeDriver(); //to perform testing in Edge browser
+
+
+3. WebDriver is a remote control interface that enables introspection and control of browser. 
+ChromeDriver, EdgeDriver, FirefoxDriver, etc. are classes in Selenium contains 
+methods which are used to automate respective browsers.
+
+ a) ChromeDriver driver = new ChromeDriver(); 
+In this the driver object has access to all the methods in ChromeDriver.
+
+ b) WebDriver driver = new ChromeDriver(); 
+In this the driver object has access to those methods of ChromeDriver which are 
+common in WebDriver interface
+
+
+---------------------------------------------------------------------------------------------
+Web driver methods  .  	get()   open the app
+			. getCurrentURL()  --- current url
+			. getTitle()		title of page
+			. getText()
+			. getTagName()
+			. getCSSValue()
+			. getAttribute(string name)
+			. quit()
+			. close()
+
+
+Browser Navigate methods  . driver.navigate().to(appUrl);    to back forward refresh
+			  . driver.navigate().back()
+			  . driver.navigate().forward() 
+			  . driver.navigate().refresh() 
+
+
+Web Elements methods    . findElement()
+			. sendKeys() - used to enter text in the web element
+			. submit() - used to submit a form
+			. click() - used to perform click on the web element
+			. clear() - used to clear entered text
+			. isEnabled()
+			. isDisplayed()
+			. isSelected()
+
+
+findElement(): This method uniquely finds a web element on the web page.
+Syntax :  WebElement elementName = driver.findElement(By.LocatorStrategy("LocatorValue"));
+
+
+findElements(): This method finds a list of web elements on the web page.
+Syntax: List<WebElement> elementName = driver.findElements(By.LocatorStrategy("LocatorValue"));
+
+
+findElement locators strategies	. id					By-- locator   By.Id
+				. name
+				. class name
+				. tag name
+				. CSS selector
+				. XPath
+				. linkText
+				. Partiallinktext
+
+driver.findElements(By.tagname("LocatorValue"));
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CSS Selector : A CSS selector is a pattern string that uses CSS to target specific HTML elements on a web page.
+		It can select elements by tags, class names, IDs, attribute values, and more with a simple syntax. CSS selectors are straightforward, making them a great tool for locating HTML nodes.  
+
+1. ID selector
+2. Class selector
+3. Attribute Selector
+
+Tag and id ----- #id  				 eg:  #password
+Tag and class name				 eg:  .classname				
+Tag and attributes ----tagname[att=value] 	 eg: input[placeholder=password]
+
+contains(*)					input[id*=password]
+starts-with(^)					input[id^=user]
+end with($)  					input[id$=word]
+
+
+first-of-type     				#id>tagname:first-of-type
+last-of-type					tagname[class=day]>tagname:last-of-type
+nth-of-type					tag#id>tag:nth-of-type(6)
+		
+//input[@type='submit']
+input[type=submit]
+ 
+input[name$=name]
+
+--------------------------------------------------------------------------------------------------------
+
+Xpath :  XPath is a query language that locates the element by. Navigating through the XML 
+document.
+
+
+	. Absolute xpath  - It contains the complete path from root element to desire element
+			    It is a direct way to find element 
+			    Single forward slash (/)
+		        eg:- /html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/input[1]
+
+	. Relative xpath  - It is simply like refrencing the element and go from particular location 
+			    not a complete path from root element, can start from middle of HTML DOM structure
+			    Double slash (//)
+			    so relative xpath is always preferred
+			eg:  //input[@placeholder="Username"]
+
+
+Syntax:    //tagname[@attribute='value']
+ 	
+//     		--  current node
+tagname 	-- tagname of particular node like input, div etc
+@		--  allows you to select attribute
+attribute 	-- select attribute like id , name, classname etc
+value		-- value of attribute
+
+
+eg:-  	//input[@name='password']
+      	//*[@id='login']
+	//input[@type='text']
+	//input[@class='username3241']
+	//a[@href='https://www.google.com']
+	//img[@src='../images/java.png']
+
+
+* methods:       basic xpath  -- //tagname[@attribute='value']
+		 contains     -- //tagname[contains(@attribute,'value')]
+		 text 	      -- //tagname[text()='value']
+		 starts-with  -- //tagname[starts-with(@attribute,'value')]
+		 or ,and      -- //tagname[@attribute='value' or @attribute='value']
+				 //tagname[@attribute='value' and @attribute='value']
+
+		contains     //input[contains(@placeholder,'Username')]
+		text         //h4[text()='Password for all users:']
+		starts-with  //input[starts-with(@type,'submit')]
+		OR	     //input[@type='text' or @id='user-name']
+		AND	     //input[@type='text' and @id='user-name']
+
+--------------------------------------------------------------------------------------------------------
+
+Axes:
+=====  
+XPath Axes in Selenium WebDriver used to locate a web element which is not having any attributes on it's own, can't locate it directly using any of the locator strategy which selenium WebDriver provides except XPath and very useful to locate dynamic XPath. In such cases we can use XPath Axes mechanism to locate based on other web elements present in the HTML Document. We can use any one or all of the XPath axes names/method to locate any web element on given web page.
+
+XPath Axes Names/Methods ========
+    
+1) Self -- Selects the current node
+2) Parent -- Selects the parent of the current node
+3) Child  --  Selects all children of the current node
+4) Ancestor  --Selects all ancestors (parent, grandparent, etc.) of the current node
+5) Descendant  --  Selects all descendants (children, grandchildren, etc.) of the current node
+6) Following-sibling  --  Selects all siblings after the current node
+7) Preceding-sibling -- Selects all siblings before the current node
+
+syntax: (Self/target)
+//tagname[@attribute='value']/Axes::tagname[0]
+//tagname[@attribute='value']/Axes::tagname/axes::tagname[0]
+
+examples:
+//div[@class='form_group']/descendant::input[1]
+//div[@class='form_group']/parent::form/child::div[1]
+//div[@class='form_group']/child::input[1]
+//div[@class="form_group"]/parent::form
+
+//div[@class="form_group"]/ancestor::div[@class="login_wrapper"]
+//div[@class="form_group"]/ancestor::div[4]
+
+//div[@class="form_group"]/child::input
+
+//div[@class='form_group']/parent::form
+//div[@class='login-box']/child::form/child::div/child::input[@placeholder='Username']
+
+//div[@class="error-message-container"]/preceding-sibling::div
+//button[@class="primaryButton___2f7bf2 searchButtonWrapper___90670b"]/child::i/ancestor::div
+------------------------------------------------------------------------------------------------------------------------
+
+Xpath and Xpath Axes
+
+	* syntax   //tagname[@attribute='value']
+
+	* absolute and relative
+
+	* methods: contains 
+		 text 
+		 starts-with
+		 or ,and
+	* XPath axes methods
+		following,preceding,ancestor,parent,child,following-sibling,self,descendant
+--------------------------------------------------------------------------------------------------------
+Upload the File:
+
+1. WebElement file = driver.findElement(By.cssSelector("input[type='file']"));
+   fileInput.sendKeys("C:\\path\\to\\your\\file.txt"); 
+2. Robot class
+---------------------------------------------------------------------------------------------------------------------
+CheckBoxes
+---------------------------------------------------------------------------------------------------------------------
+Radio Buttons
+
+
+--------------------------------------------------------------------------------------------------------
+Drop Down       Select --- The Select Class in Selenium is a method used to implement the HTML SELECT tag. methods to select and deselect the elements. The Select class is an ordinary class so New keyword is used to create its object and it specifies the web element location.
+
+		selectByVisibleText()           single
+		deselectByVisibleText()		multiple option
+		selectByValue() 		single
+		deselectByValue()		multiple option
+		selectByIndex()			single
+		deselectByIndex()		multiple option
+	        isMultiple()       --  boolean  returns TRUE if the drop-down element allows multiple selection at a time; FALSE if otherwise
+		deselectAll()	-- Clears all selected entries. This is only valid when the drop-down element supports multiple selections.
+		getFirstSelectedOption()  -- This method returns the first selected option of the dropdown
+		getAllSelectedOption()    --  This method returns all the selected options of the dropdown
+		getOptions()		-- There are times when you need to get all the options in a dropdown or multi-select box. This is where you can use the getOptions() method of the Select class.
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------
+Action
+Actions  class	---  it is a built in feature provided by selenium for handling mouse and keyboard events
+			 build()   perform()
+	    	  with movetoElement & without , sendkeys()
+		
+	methods ----		single , double, right(context) ,sendkeys(), drag and drop
+
+
+	actions					webelement
+	
+	sendkeys()				sendkeys()
+
+	simulate the keyboard key		typing ther text into the text fields
+	by press and release
+
+	like tab,enter,down,up etc		like "username"
+
+--------------------------------------------------------------------------------------------------------
+
+
+Frames:- Frames are a now deprecated means of building a site layout from multiple documents on the same domain.
+		The frame enables a developer to split the screen horizontally or vertically by using the frameset tag.
+		An iframe is also known as an inline frame.
+		 An iframe tag is defined using <iframe></iframe> tags
+		
+
+Handle Frames   driver.switchTo().frame();  ---  by index,id&name ,parent , frame element
+<iframe>
+
+drived.switchTO().Frame(index)
+drived.switchTO().Frame(name & id)
+drived.switchTO().Frame(WebElement)
+drived.switchTO().parentFrame(), defaultContent()
+
+. switchTo()  --  helps to switch between the Frames
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------
+
+wait Synchronization:
+====================
+wait Synchronization  --  --  coordination process between the components is termed Synchronization.
+		      -- Synchronization in Selenium executes the code and applications, which must be in 			synchronization to perform the operation.
+		     --  wait command in selenium direct test script to pause for certain time before throwing "ElementNotVisibleException" ,  NoSuchElementException , InvalidSelectorException , TimeoutExcetion
+
+-->  Types of Synchronizations in Selenium:
+=========================================== 
+   a)  Conditional Synchronization 
+   b)  Unconditional Synchronization 
+
+
+a) Conditional Synchronization:
+============================== 
+In this type of Synchronization, an error can be overthrown as we can specify timeout duration along with some desired conditions. Conditional Synchronization, also known as Dynamic wait divided into three types -  
+
+a) Implicit wait 
+
+b) Explicit wait ( Webdriver wait) 
+
+c) PageLoadTimeout  
+
+d) Fluent wait 
+
+================================
+   1. Implicit wait -- 
+
+dynamic wait , global ( tells the web driver to wait for certain amount of time before it throws exception as noSuchElement exception found ,  it will wait till maximum of the seconds given   
+--  driver.manage().timeouts().implicitWait(duration.ofSeconds(4));
+
+-	When finding the element in any webpage selenium doesn't wait for any time, so if the element is not available immediatiely then selenium webdriver will throw the exception i.e: NoSuchElementException 
+	For eg: element A takes 0sec to find and element B takes 2sec to find
+- You can allow the selenium webdriver to wait for some time to find the element using Implicit Wait Timeout.
+====================================
+
+   2. Explicit wait(WebDriver wait) -- 
+
+dynamic , applicable to particular webelement like button,textbox & if the elements taking bit time to load then we can specify explicit to those element to appear first then proceed
+- Explicit wait is applied for specific elements on page which take more time load or appear.
+
+-	The Explicit Wait in Selenium is used to tell the Web Driver to wait for certain conditions (Expected Conditions) or 	maximum time exceeded before throwing “ElementNotVisibleException” exception. It is an intelligent kind of wait, but it can be applied only for specified elements.
+
+-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds());
+		wait.until(ExpectedConditions)
+-    define “WebDriverWait” class on the webpage until the “ExpectedConditions” are met .
+======================================
+
+   3. Fluent wait -- 
+
+dynamic ,we can specify polling frequency (if element take long time but u want it to be checked by small interval of time i.e polling ), specify exculsion of the exception that can happen , similar to explicit wait
+
+- The Fluent Wait in Selenium is used to define maximum time for the web driver to wait for a condition, as well as the frequency with which we want to check the condition before throwing an “ElementNotVisibleException” exception. It checks for the web element at regular intervals until the object is found or timeout happens.
+
+- Frequency: Setting up a repeat cycle with the time frame to verify/check the condition at the regular interval of time
+
+-	sWait<WebDriver> wait = new FluentWait<WebDriver>(WebDriver reference)
+	.withTimeout(Duration.ofSeconds())
+	.pollingEvery(Duration.ofSeconds())
+	.withMessage("")
+	.ignoring(Exception.class);
+
+	wait.until(ExpectedConditions)   
+========================================
+
+b) Unconditional Synchronization :
+This Unconditional Synchronization of Selenium with Java specifies just the timeout limit. It pauses the code for a specified time, and then it executes the following line of code. This Synchronizsation is not preferred for automation as it waits for the specified time though the web element is found.
+   
+. sleep() -- Static wait , it stop the script,
+Thread.Sleep is a static wait and it is not a good way to use in scripts as it is sleep without condition.
+
+-------------------------------------------------------------------------------------------------------
+
+
+Robots  --- users need control over keyboard or mouse to interact with OS windows like download pop-ups, print pop-ups, etc. and native applications like notepad, calculator, etc. It is generally used to simulate real-time keyboard and mouse operations which we do manually.
+
+mouseMove(int x, int y): Method to move the mouse pointer to the given screen coordinate
+mousePress(int buttons): Method to press one or more mouse buttons
+mouseRelease(int buttons): Method to release one or more mouse buttons
+
+InputEvent.BUTTON1_DOWN_MASK :  For mouse left -click
+InputEvent.BUTTON3_DOWN_MASK : For mouse right-click
+
+keyPress(): Ex: robot.keyPress(KeyEvent.VK_DOWN) : This method with press down arrow key of Keyboard
+keyRelease() : Ex: robot.keyRelease(KeyEvent.VK_DOWN) : This method with release down arrow key of Keyboard
+To press down arrow key of Keyboard we use (robot.keyPress(KeyEvent.VK_DOWN))
+To press TAB key of keyboard (we use robot.keyPress(KeyEvent.VK_TAB))
+To press Enter key we use (robot.keyPress(KeyEvent.VK_ENTER)).
+To press ctrl+A , ctrl+C , ctrl+V   robot.keyPress(KeyEvent.VK_CONTROL),robot.keyPress(KeyEvent.VK_A)
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+Web Alerts ( handle web alerts,pop ups,dialog)
+	    Simple Alert, Prompt Alert, Confirmation Alert
+ methods       . dismiss() 
+	       . accept()	
+	       . getText()  --  capture the text
+	       . sendKeys(String stringToSend) 
+
+Syntax   driver.switchTo().alert().method name();
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+Handling multiple windows  --  It is a unique identifier that holds the address of all the windows .(as a pointer to a window) . so each browser has a unique window handle.
+
+
+	. getWindowHandle() -- This method helps to get the window handle of the current window ,returns string ,we get unique ID of the current window (identified within driver instance.)
+	. getWindowHandles() -- this method helps to get the handles of all the windows opened,stores in set of string type,to handle all opened windows,transition from 1 window to another
+	. switchTo()  --  helps to switch between the windows
+	. set -- this method helps to set the window handles in the form of string.  set<String>(returns the set of handles)
+
+	. newWindow 	driver.switchTo().newWindow(WindowType.TAB);			        driver.switchTo().newWindow(WindowType.WINDOW);
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------
+Javascript executor  : -- I
+		-- It is an interface which provides mechanism to execute javascript through selenium driver .
+		-- javascript is a programming language that interacts with HTML in a browser, & to use this function in selenium javaScriptExecutor is required
+
+* Two methods
+1. ExecuteScript : execute javascript in the currently selected window or frame.
+2. ExecuteAsyncScript : execute asynchronous javascript in the current window or frame.
+
+
+* STEPS :	
+	1. Import the package -- Import org.openqa.selenium.JavascriptExecutor;
+	2. Create a reference -- JavascriptExecutor js = (JavascriptExecutor) driver;
+	3. Call the JavascriptExecutor method -- js.executeScript(script, args);
+
+	JavaScriptExecutor js=(JavaScriptExecutor)driver;
+	refresh  -- js.executeScript("location.reload()");
+	ScrollBy(H,V)  --- js.executeScript("window.scrollBy(0,450)");
+	setAttribute    give the value
+	getAttribute	fetch and print it in console
+	click()       
+js.executeScript("argument[0])
+ a b
+
+
+document.getElementById('').value('')
+document.elementFromPoint(x,y).click(); = (0,0) (10,10)
+
+

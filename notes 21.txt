@@ -1,0 +1,263 @@
+API -> Web Service
+
+- A web service is a standardized way for different applications or systems to communicate and share data over the internet
+- Web services use standard protocols, typically HTTP/HTTPS, to send and receive messages between clients and servers.
+- Platform independent communication
+- A web service acts as a mediator between different applications or systems, allowing them to interact with each other over a network. 
+- This interaction typically follows a request-response model, where a client sends a request to a server, and the server responds with the necessary data or action.
+- Web services are essential for building distributed systems and cloud-based applications in today’s software ecosystem.
+- Using webservices two different applications can talk to each other and exchange data
+
+---------------------------------------------------------------------------------------------------------
+Characteristics of Web Services/API:
+
+1. Interoperability: Different systems, written in different programming languages, can communicate with each other.
+2. Statelessness: Most web services, especially RESTful ones, are stateless, meaning each request from the client to the server is independent.
+3. Platform Independence: Web services allow systems on different platforms (Windows, Linux, etc.) to communicate.
+4. Accessibility: Web services can be accessed over the internet or a private network.
+
+===============================================
+Types
+ 
+1.  SOAP - Simple Object Access Protocol
+	A highly structured
+	medium= HTTP (post)
+	format= XML
+
+2.  REST - Representational State Protocol
+	medium= HTTP (get, post, put, delete ..)
+	format= XML/ JSON/ Text
+- Is an architectural style (light weight)
+- Rest defines a set of principles to be followed while designing a service for communication/ data exchange between two applications
+
+When these principles are applied while designing web services (for client - server interactions) we get: RESTful Web Services.
+
+
+--> SOAP, which requires every message to be wrapped in a complex XML envelope, REST commonly uses JSON (JavaScript Object Notation). 
+--> JSON is leading to smaller data packets and reduced bandwidth consumption.
+->  Principles/ constraints of REST Architecture
+
+
+Main features of APIs
+Data exchanged is generally JSON based.
+Does not require a specific network to access.
+Lightweight architecture.
+Highly configurable.
+Easy to implement and use.
+===================================
+1. Uniform Interface = Uses standard methods (GET, POST, etc.) for all resources.
+
+. Resource: everything is a resource
+. URI: any resource/data can be accessed by a URI (uniform resource identifier)
+. HTTP: make explicit use of HTTP methods
+
+2. Client-Server: Separates the user interface from data storage.
+3. Stateless = all client-server communications are stateless, Each request contains all information needed to process it.
+4. Cacheable = happens at client side. Responses define themselves as cacheable to improve performance
+5. Code On Demand = ability to download and execute code on client side
+
+
+W3C- World wide web consortium
+An international community that develops open standards for world wide web.
+
+JSON (JavaScript Object Notation) is the data format that REST APIs most commonly use for the exchange of data between client (your app) and server (the API). In an API request or response, the presence of the Content-Type HTTP header with value application/json indicates that the body is formatted as JSON
+===================================================================
+Components
+1. WSDL -  Web Services Description Language
+- Service Provider publishes an interface for his web services that described all attributes of the web services
+- This is XML based interface & is called WSDL
+- So it is a xml based interface that is used to describe the functionalities of the services
+
+-->How It is shared with the consumer?
+ if the consumer & provider knows each other then they can provide the WSDL or by UDDI
+
+2. UDDI - Universal Description, Discovery and Integration
+- A web service provider publishes his web service ( through WSDL) on an online directory from where consumers can query and search the web services.
+- This online registry/ directory is called UDDI
+- Is an XML based standard for publishing and finding web services
+===================================== 
+Postman Tool
+
+developing
+testing
+manage
+monitor
+
+- Postman is the industry-standard tool for working with REST APIs
+- Postman is a leading API(Application Programming Interface) Platform used by over 30+ million to design, build, test, and manage APIs.
+- It's development and testing platform used to build, test, document, and monitor APIs. It provides a graphical user interface for sending HTTP requests (GET, POST, PUT, DELETE, etc.) and analysing responses, making it popular for backend and frontend development. 
+- It simplifies the API lifecycle by providing a graphical interface to interact with various protocols without writing complex code.
+
+- Enter a URL (endpoint), select an HTTP method, and click Send to view the response body, headers, and status code.
+
+=========================================================
+
+GET (Read): Retrieves data, such as GET /users/123 to fetch specific user details.
+POST (Create): Submits new data to create a new resource, such as POST /users.
+PUT (Update/Replace): Replaces an entire existing resource, such as PUT /users/123.
+DELETE (Remove): Removes a resource, such as DELETE /users/123.
+PATCH (Partial Update): Modifies part of a resource, such as PATCH /users/123 to update only an email.
+
+===============================================================
+
+Uniform Resource Locators (URLs): These identify a resource by specifying how to access it.
+
+https://www.example.com/index.html (Webpage via HTTPS)
+ftp://ftp.example.com/files/document.pdf (File via FTP)
+file:///C:/Users/Documents/report.txt (Local file path)
+https://github.com (API endpoint)
+1. How to add API Request
+2. Run & Check Response
+
+Uniform Resource Names (URNs): These identify a resource by a persistent name rather than its location.
+
+urn:isbn:978-3-16-148410-0 (A book identified by its ISBN)
+urn:ietf:rfc:3986 (A specific Internet standard document)
+urn:oasis:names:specification:docbook:dtd:xml:4.1.2 (Software specification)
+
+
+Uniform Resource Identifier URIs: is a string of characters used to identify a resource by name, location, or both
+
+mailto:info@example.com (An email address identifier)
+tel:+1-212-555-1212 (A telephone number)
+data:text/plain;base64,SGVsbG8sIFdvcmxkIQ== (A Data URI embedding a small file directly)
+geo:37.7749,-122.4194 (Geographic coordinates)
+spotify:track:4cOdK2wG6S9999 (A specific track in the Spotify app) 
+
+- All URLs are URIs, but not all URIs are URLs. A URL is a URI that also tells you where the resource is located. 
+- A URI is used to identify a resource, whereas a URL is used to locate it
+- A URL typically includes a protocol (like https or ftp), a domain name, and a path. A URI can be more abstract and may only include a name (known as a URN), such as urn:isbn:0451450523
+===============================================================================
+
+-- Select the HTTP Method
+-- Add the API endpoint
+-- Add Headers, Body etc as needed
+-- For POST, PUT requests add Body
+-- Save & Run, Check Response
+
+Collection
+- Get, Put, Post, Patch
+
+Authentication = Who you are
+Authorization = What can you do
+
+Request Body = Payload
+
+In Postman the url endpoint is accessing a particular resource/area/section so we need to authorize the user so that they can access it
+==========================================
+
+Workspace
+Collection
+Variables  = Global , Collection, Environment, Data, Local  --> Refer variables in Request, Scripts, Collection, Environment
+priority = local. data. env, coll, global
+
+Environment = it is a set of key- value pairs
+
+Scripts (Tests) - Tests in postman are JavaScript code that is executed after receiving response
+
+Debug with console
+
+Data Driven Testing
+
+Autherization - 
+API Key = Identifier(key) -> Identifying apps/projects -> Low
+Bearer Token= signed token -> Standard token transmission ->Medium-High
+JWT = Format(self-contained)  -> Stateless, distributed systems  -> High
+OAuth 2.0= Framework  -> Third-party delegations  -> Very High
+Digest Auth = older HTTP Scheme/method(mechanism)  -> Legacy web application login  -> Medium
+
+
+
+==> Collections are folders that group related requests, making them easier to manage.
+
+
+
+=============================================================
+HTTP response status codes
+---------------------------
+
+HTTP response status codes indicate whether a specific HTTP request has been successfully completed. Responses are grouped in five classes:
+
+Informational responses (100 – 199)
+Successful responses (200 – 299)
+Redirection messages (300 – 399)
+Client error responses (400 – 499)
+Server error responses (500 – 599)
+
+
+1xx: Information
+
+100 Continue
+101 Switching Protocols	
+103 Early Hints	
+---------------------------------------------
+2xx: Successful
+
+200 OK	The request is OK 
+201 Created	
+202 Accepted	
+203 Non-Authoritative Information	
+204 No Content	
+205 Reset Content	
+206 Partial Content	
+--------------------------------------------------------
+3xx: Redirection
+
+300 Multiple Choices	  
+301 Moved Permanently	 
+302 Found	 
+303 See Other	
+304 Not Modified	
+307 Temporary Redirect	
+308 Permanent Redirect	
+-----------------------------------------------------------
+4xx: Client Error
+
+400 Bad Request	
+401 Unauthorized	
+402 Payment Required	
+403 Forbidden	
+404 Not Found	
+405 Method Not Allowed	
+406 Not Acceptable	
+408 Request Timeout	
+409 Conflict	
+410 Gone	
+417 Expectation Failed
+------------------------------------------------------------
+5xx: Server Error
+
+500 Internal Server Error	
+501 Not Implemented	
+502 Bad Gateway	
+503 Service Unavailable	
+504 Gateway Timeout	
+505 HTTP Version Not Supported	
+511 Network Authentication Required	
+---------------------------------------------------------
+
+REST Assured:
+===============
+
+REST Assured is a popular Java library (DSL) designed to simplify testing and automation of RESTful web services.
+It enables testing of GET, POST, PUT, DELETE, and other methods, supporting JSON/XML validation, authentication (OAuth, Basic), and integration with frameworks like JUnit/TestNG/Cucumber/CI-CD. Version 6.0+ supports Java 17+.
+ It provides a simple given-when-then
+
+
+given - pre-requirement (setting initial your request) --> URI, headers, body, auth, parameters
+when - actions   (GET, POST, PUT, PATCH ETC)
+then - output    (response- status, response header, response body)
+
+
+We Use 
+RestAssured -> class to set base URI as global 
+RequestSpecification to initialize the request
+given() methods is used to start the pattern, allowing you to add headers, parameters, body
+Response is in JSON format so we need to convert it into readable format(string)
+
+given()
+.header()
+.body()
+.auth()
+.parameter()
+
